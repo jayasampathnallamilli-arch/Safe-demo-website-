@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Safe Demo</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;
+font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:linear-gradient(135deg,#111827,#312e81);
+color:#fff;padding:20px}.card{width:min(430px,100%);background:rgba(255,255,255,.1);
+backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);border-radius:24px;
+padding:28px;box-shadow:0 20px 60px #0005}.icon{font-size:48px}h1{margin:8px 0}
+p{color:#dbeafe;line-height:1.5}.info{margin-top:20px;background:#0003;border-radius:14px;padding:14px}
+.row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #ffffff18}
+.row:last-child{border:0}.label{color:#cbd5e1}.value{font-weight:600;text-align:right;max-width:60%}
+button{width:100%;margin-top:18px;padding:13px;border:0;border-radius:12px;background:#fff;
+color:#312e81;font-weight:700;font-size:16px}small{display:block;margin-top:14px;color:#bfdbfe;text-align:center}
+</style>
+</head>
+<body>
+<div class="card">
+<div class="icon">🛡️</div>
+<h1>Safe Demo Page</h1>
+<p>This page demonstrates what a website can see without asking for private login credentials.</p>
+<div class="info">
+<div class="row"><span class="label">Browser</span><span class="value" id="browser">Loading…</span></div>
+<div class="row"><span class="label">Platform</span><span class="value" id="platform">Loading…</span></div>
+<div class="row"><span class="label">Screen</span><span class="value" id="screen">Loading…</span></div>
+<div class="row"><span class="label">Language</span><span class="value" id="lang">Loading…</span></div>
+</div>
+<button onclick="alert('Demo only — no email or password was collected.')">Check Demo</button>
+<small>🔒 No passwords, OTPs, cookies, or account credentials are collected.</small>
+</div>
+<script>
+const ua=navigator.userAgent;
+document.getElementById('browser').textContent =
+ /Edg/i.test(ua)?'Microsoft Edge':/Chrome/i.test(ua)?'Chrome':
+ /Firefox/i.test(ua)?'Firefox':/Safari/i.test(ua)?'Safari':'Other';
+document.getElementById('platform').textContent=navigator.platform||'Unknown';
+document.getElementById('screen').textContent=screen.width+' × '+screen.height;
+document.getElementById('lang').textContent=navigator.language||'Unknown';
+</script>
+</body>
+</html>
